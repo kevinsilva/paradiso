@@ -1,30 +1,53 @@
-# React + TypeScript + Vite
+<p align="center"><img src="" width="100"></p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
 
-Currently, two official plugins are available:
+<a href="">[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-success?style=flat-square&logo=codesandbox)]()</a>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</div>
 
-## Expanding the ESLint configuration
+# Paradiso
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+A React-based front-end application for browsing movies and tv series.
 
-- Configure the top-level `parserOptions` property like this:
+## Implementation Details
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+This project leverages data from [Free-NBA](https://rapidapi.com/theapiguy/api/free-nba) to showcase NBA data. To enhance user experience, I've opted to reference data from the current season, minimizing requests from the free API and delivering cleaner, more concise information. The project is built with [React](https://react.dev/) and incorporates [TypeScript](https://www.typescriptlang.org/) for code robustness. It integrates a Dark Mode toggle through the ThemeSwitch component. Initialized with a default 'light' theme, it dynamically adjusts to stored preferences or user system settings using [Tailwind CSS](https://tailwindcss.com) dark class settings. Navigation is powered by [react-router-dom](https://www.npmjs.com/package/react-router-dom), and animations are implemented using [Framer-Motion](https://www.framer.com/motion/). Testing is conducted with [React-Testing-Library](https://testing-library.com/docs/react-testing-library/intro/) and .
+
+## Usage
+
+The project is structured into several components inherent to main application features.
+
+### 1. TeamsList
+
+The `TeamsList` component serves as the home page, displaying a comprehensive list of NBA teams. It utilizes the `useDataContext` hook to efficiently fetch and manage team data across various main components.
+
+## Development
+
+To install the component, clone repository, change into directory on the terminal and install with npm.
+
+```bash
+git clone https://github.com/kevinsilva/paradiso
+cd paradiso
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+To run the application.
+
+```bash
+  npm run dev
+```
+
+To run the tests.
+
+```bash
+  npm run test
+```
+
+## Credits
+
+Data from [The Movie Database API](https://www.themoviedb.org/documentation/api).
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

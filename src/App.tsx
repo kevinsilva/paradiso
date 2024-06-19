@@ -1,35 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Header } from './components/Header';
+import { HorizontalCard } from './components/HorizontalCard';
+import { VerticalCard } from './components/VerticalCard';
+import './App.css';
+import { usePopularMovies } from './hooks/popular';
+import { usePopularSeries } from './hooks/popular';
+import { ScrollableRow } from './components/ScrollableRow';
+import { CardTypes } from './components/ScrollableRow';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { data, isLoading, error } = usePopularMovies();
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error</div>;
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      {data &&
+        ScrollableRow({
+          title: 'Popular Movies',
+          data,
+          cardType: CardTypes.HORIZONTAL,
+        })}
+      {/* {data && (
+        <div>
+          <div className='scrollbar-hide -mx-4 flex h-full overflow-x-auto scroll-smooth pb-12'>
+            {data &&
+              data.map((item) => (
+                <div className='mx-4'>
+                  <HorizontalCard
+                    title={item.name}
+                    imageSrc={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
+                  />
+                </div>
+              ))}
+          </div>
+        </div>
+      )} */}
+      {/* {data2 && (
+        <div className='scrollbar-hide -mx-4 flex h-full overflow-x-auto scroll-smooth pb-12'>
+          {data2.map((item) => (
+            <div key={item.id} className='mx-4'>
+              <VerticalCard
+                title={item.name}
+                imageSrc={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
+              />
+            </div>
+          ))}
+        </div>
+      )} */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
