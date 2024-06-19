@@ -12,6 +12,13 @@ export const fetchPopularSeries = async () => {
   return data.results;
 };
 
+export const fetchTrendingSeries = async () => {
+  const { data } = await API.get('/trending/tv/week', {
+    params: API_PARAMS_DETAILS,
+  });
+  return data.results;
+};
+
 export const fetchSeriesGenres = async () => {
   const { data } = await API.get('/genre/tv/list');
   return data.genres;

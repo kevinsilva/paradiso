@@ -12,6 +12,13 @@ export const fetchPopularMovies = async () => {
   return data.results;
 };
 
+export const fetchTrendingMovies = async () => {
+  const { data } = await API.get('/trending/movie/week', {
+    params: API_PARAMS_DETAILS,
+  });
+  return data.results;
+};
+
 export const fetchMovieGenres = async () => {
   const { data } = await API.get('/genre/movie/list');
   return data.genres;
