@@ -1,5 +1,10 @@
 import API from './api';
-import { API_PARAMS_BEST, API_PARAMS_SEARCH } from '../utils/constants';
+import {
+  API_PARAMS_BEST,
+  API_PARAMS_SEARCH,
+  API_PARAMS_DETAILS,
+  API_PARAMS_RECOMMENDATIONS,
+} from '../utils/constants';
 import { getGenreId } from '../utils/utilitary';
 
 export const fetchPopularMovies = async () => {
@@ -26,4 +31,25 @@ export const fetchSearchMovies = async (query: string) => {
     params: API_PARAMS_SEARCH,
   });
   return data.results;
+};
+
+export const fetchMovieDetails = async (movieId: number) => {
+  const { data } = await API.get(`/movie/${movieId}`, {
+    params: API_PARAMS_DETAILS,
+  });
+  return data;
+};
+
+export const fetchMovieCredits = async (movieId: number) => {
+  const { data } = await API.get(`/movie/${movieId}/credits`, {
+    params: API_PARAMS_DETAILS,
+  });
+  return data;
+};
+
+export const fetchMovieRecommendations = async (movieId: number) => {
+  const { data } = await API.get(`/movie/${movieId}/recommendations`, {
+    params: API_PARAMS_RECOMMENDATIONS,
+  });
+  return data;
 };

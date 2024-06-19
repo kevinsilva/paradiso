@@ -13,3 +13,12 @@ export const API_PARAMS_SEARCH = {
   language: 'en-US',
   page: 1,
 };
+
+export const API_PARAMS_DETAILS = {
+  language: 'en-US',
+};
+
+export const API_PARAMS_RECOMMENDATIONS = {
+  language: 'en-US',
+  page: 1,
+};
