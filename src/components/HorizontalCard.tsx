@@ -1,4 +1,3 @@
-import React from 'react';
 type HorizontalCardTypes = {
   title: string;
   imageSrc: string;
@@ -11,10 +10,10 @@ export const HorizontalCard = ({
   genre,
 }: HorizontalCardTypes) => {
   return (
-    <div className='relative flex h-[10.438rem] w-[18.563rem] cursor-pointer flex-col'>
+    <div className='group relative flex h-[10.438rem] w-[18.563rem] cursor-pointer flex-col'>
       <img
         src={imageSrc}
-        className='h-full w-full rounded-xl object-cover'
+        className='h-full w-full rounded-xl object-cover transition-opacity duration-300 group-hover:opacity-75'
       ></img>
       {genre && (
         <div className='absolute left-2 top-2 z-10'>
