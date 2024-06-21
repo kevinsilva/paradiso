@@ -24,7 +24,7 @@ export const Header = () => {
 
   return (
     <header className='absolute left-0 top-0 z-50 flex w-full items-center justify-between p-4 text-white'>
-      <h1 className='text-center text-2xl font-bold text-white'>Paradiso</h1>
+      <h1 className='text-center text-2xl font-bold text-black'>Paradiso</h1>
       <div className='flex items-center'>
         <input
           type='text'
