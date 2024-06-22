@@ -14,7 +14,7 @@ export const HorizontalCard = ({ title, imageSrc, link }: CardTypes) => {
       >
         <img
           src={IMAGE_URL + imageSrc}
-          className={`h-[${HORIZONTAL_CARD_SIZE.height}] w-full rounded-xl object-cover transition-opacity duration-300 hover:opacity-90`}
+          className={`h-[${HORIZONTAL_CARD_SIZE.height}] w-full rounded-xl bg-center object-cover transition-opacity duration-300 hover:opacity-90`}
         ></img>
 
         <p

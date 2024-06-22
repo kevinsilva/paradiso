@@ -19,22 +19,24 @@ export const ScrollableRow = ({ title, children }: ScrollableRowTypes) => {
 
   return (
     <div>
-      <h2 className='mb-4 text-left text-2xl font-bold'>{title}</h2>
+      <h2 className='mb-4 ml-3 text-left text-xl font-bold text-neutral-50'>
+        {title}
+      </h2>
       <div className='group relative flex h-full items-center justify-between'>
         <button
-          className='absolute -left-4 top-[calc(50%-1.75rem)] z-50 -translate-y-1/2 transform rounded-full bg-white p-2 text-gray-600 opacity-0 shadow-md transition-opacity duration-200 hover:bg-gray-100 group-hover:opacity-100'
+          className='absolute -left-10 top-[calc(50%-1.75rem)] z-50 -translate-y-1/2 transform p-2 text-neutral-50 opacity-0 transition-opacity duration-200 group-hover:opacity-100'
           onClick={handlePrevClick}
         >
           <CaretLeft size={32} />
         </button>
         <div
           ref={scrollableRef}
-          className='scrollbar-hide -mx-4 flex h-full overflow-x-auto overflow-y-hidden scroll-smooth'
+          className='scrollbar-hide flex h-full overflow-x-auto overflow-y-hidden scroll-smooth'
         >
           {children}
         </div>
         <button
-          className={`absolute -right-4 top-[calc(50%-1.75rem)] z-50 -translate-y-1/2 transform rounded-full bg-white p-2 text-gray-600 opacity-0 shadow-md transition-opacity duration-200 hover:bg-gray-100 group-hover:opacity-100`}
+          className={`absolute -right-10 top-[calc(50%-1.75rem)] z-50 -translate-y-1/2 transform rounded-full p-2 text-neutral-50 opacity-0 transition-opacity duration-200 group-hover:opacity-100`}
           onClick={handleNextClick}
         >
           <CaretRight size={32} />

@@ -1,7 +1,11 @@
 import { useRef } from 'react';
 import { VIDEO_URL } from '../utils/constants';
 
-export const Video = (sourceURL: string) => {
+type VideoTypes = {
+  sourceURL?: string;
+};
+
+export const Video = ({ sourceURL }: VideoTypes) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const handlePlay = () => {

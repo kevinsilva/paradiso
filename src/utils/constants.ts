@@ -1,3 +1,20 @@
+export const IMAGE_URL = 'https://image.tmdb.org/t/p/original';
+
+export const VIDEO_URL =
+  'https://rawgit.com/mediaelement/mediaelement-files/master/big_buck_bunny.mp4';
+
+export const VERTICAL_CARD_SIZE = {
+  width: '18.6rem',
+  height: '27.8rem',
+};
+
+export const HORIZONTAL_CARD_SIZE = {
+  width: '18.5rem',
+  height: '10.4rem',
+};
+
+export const CARD_PARAGRAPH_HEIGHT = '1.75rem';
+
 export const API_PARAMS_BEST = {
   include_adult: false,
   include_video: true,

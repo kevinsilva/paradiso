@@ -9,8 +9,8 @@ export const AppRoutes = () => {
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/search/:query' element={<SearchPage />} />
-      <Route path='/movie/:id/:movieName' element={<MoviePage />} />
-      <Route path='/tvSerie/:id/:serieName' element={<SeriePage />} />
+      <Route path='/tv-serie/:id/:title' element={<SeriePage />} />
+      <Route path='/movie/:id/:title' element={<MoviePage />} />
     </Routes>
   );
 };

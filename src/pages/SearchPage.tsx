@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useSearchMovies, useSearchSeries } from '../hooks/useFetch';
-import { ScrollableRow, CardTypes } from '../components/ScrollableRow';
+import { SearchPageSection } from '../section/SearchPageSection';
+import { ScrollableRow } from '../components/ScrollableRow';
+import { CardTypeTypes } from '../utils/types';
 
 export const SearchPage = () => {
   const { query } = useParams();
@@ -20,22 +22,8 @@ export const SearchPage = () => {
   if (moviesError || seriesError) return <div>Error</div>;
 
   return (
-    <div className='px-8 pt-16'>
-      <h2 className='mb-4 text-left text-2xl font-bold'>
-        Search Results for "{query}"
-      </h2>
-      <div className='grid grid-cols-1 gap-4'>
-        <ScrollableRow
-          title='Movies'
-          data={movies}
-          cardType={CardTypes.HORIZONTAL}
-        />
-        <ScrollableRow
-          title='Series'
-          data={series}
-          cardType={CardTypes.HORIZONTAL}
-        />
-      </div>
+    <div className='h-full bg-neutral-950'>
+      <SearchPageSection movies={movies} series={series} query={query} />
     </div>
   );
 };
