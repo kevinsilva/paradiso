@@ -49,15 +49,15 @@ export const Carousel = ({ data }: CarouselTypes) => {
             alt={item.title}
           />
           <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-950'></div>
-          <div className='absolute bottom-40 left-24 w-1/2 text-neutral-50'>
-            <h2 className='text-5xl font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>
+          <div className='absolute bottom-24 left-1/2 w-1/2 -translate-x-1/2 text-center text-neutral-50 md:bottom-40 md:left-24 md:translate-x-0 md:text-left'>
+            <h2 className='text-4xl font-bold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] md:text-5xl'>
               {item.title || item.name}
             </h2>
-            <p className='mt-2 text-base drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>
+            <p className='mt-2 text-base drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] md:text-lg'>
               {item.overview && reduceText(item.overview, 150)}
             </p>
             <button
-              className={`mt-8 flex items-center justify-center gap-2 rounded-full bg-neutral-50 px-8 py-2 text-sm text-neutral-950 ${isMoreInfoHovered ? 'bg-opacity-90' : 'bg-opacity-100'}`}
+              className={`relative left-1/2 mt-8 flex -translate-x-1/2 items-center justify-center gap-2 rounded-full bg-neutral-50 px-8 py-2 text-sm text-neutral-950 md:left-0 md:translate-x-0 ${isMoreInfoHovered ? 'bg-opacity-90' : 'bg-opacity-100'}`}
               onClick={handleMoreInfoClick}
               onMouseEnter={() => setIsMoreInfoHovered(true)}
               onMouseLeave={() => setIsMoreInfoHovered(false)}
@@ -69,7 +69,7 @@ export const Carousel = ({ data }: CarouselTypes) => {
             {data.map((_item, index: number) => (
               <span
                 key={index}
-                className={`h-[.2rem] w-8 cursor-pointer rounded-sm bg-neutral-50 ${index === currentIndex ? 'bg-opacity-100' : 'bg-opacity-50'}`}
+                className={`h-[.2rem] w-5 cursor-pointer rounded-sm bg-neutral-50 md:w-8 ${index === currentIndex ? 'bg-opacity-100' : 'bg-opacity-50'}`}
                 onClick={() => handleDashClick(index)}
                 data-testid='dash-indicator'
               ></span>
