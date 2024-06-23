@@ -3,7 +3,6 @@ import { CardTypes } from '../utils/types';
 import {
   HORIZONTAL_CARD_SIZE,
   CARD_PARAGRAPH_HEIGHT,
-  IMAGE_URL,
 } from '../utils/constants';
 
 export const HorizontalCard = ({ title, imageSrc, link }: CardTypes) => {

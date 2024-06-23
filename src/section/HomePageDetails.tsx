@@ -4,22 +4,7 @@ import { VerticalCard } from '../components/VerticalCard';
 import { HorizontalCard } from '../components/HorizontalCard';
 import { generateURL } from '../utils/utilitary';
 import { IMAGE_URL } from '../utils/constants';
-
-interface Item {
-  id: number;
-  title?: string;
-  name?: string;
-  poster_path: string;
-  backdrop_path?: string;
-}
-
-interface HomePageSectionProps {
-  trending: Item[];
-  PopularMovies: Item[];
-  PopularSeries: Item[];
-  MusicMovies: Item[];
-  documentarySeries: Item[];
-}
+import { HomePageDetailsTypes } from '../utils/types';
 
 export const HomePageDetails = ({
   trending,
@@ -27,7 +12,7 @@ export const HomePageDetails = ({
   PopularSeries,
   MusicMovies,
   documentarySeries,
-}) => {
+}: HomePageDetailsTypes) => {
   return (
     <div className='h-full'>
       <div className='h-[40rem]'>
@@ -38,7 +23,7 @@ export const HomePageDetails = ({
           {PopularMovies?.map((movie) => (
             <HorizontalCard
               key={movie.id}
-              title={movie.title}
+              title={movie.title || ''}
               imageSrc={`${IMAGE_URL}${movie.poster_path}`}
               link={generateURL(movie)}
             />
@@ -50,7 +35,7 @@ export const HomePageDetails = ({
           {MusicMovies?.map((movie) => (
             <HorizontalCard
               key={movie.id}
-              title={movie.title}
+              title={movie.title || ''}
               imageSrc={`${IMAGE_URL}${movie.backdrop_path}`}
               link={generateURL(movie)}
             />
@@ -62,7 +47,7 @@ export const HomePageDetails = ({
           {PopularSeries?.map((serie) => (
             <VerticalCard
               key={serie.id}
-              title={serie.name}
+              title={serie.name || ''}
               imageSrc={`${IMAGE_URL}${serie.poster_path}`}
               link={generateURL(serie)}
             />
@@ -74,7 +59,7 @@ export const HomePageDetails = ({
           {documentarySeries?.map((serie) => (
             <HorizontalCard
               key={serie.id}
-              title={serie.name}
+              title={serie.name || ''}
               imageSrc={`${IMAGE_URL}${serie.backdrop_path}`}
               link={generateURL(serie)}
             />

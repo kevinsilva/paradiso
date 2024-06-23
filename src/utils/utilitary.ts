@@ -1,7 +1,7 @@
-import { TitlesTypes } from './types';
+import { GenreTypes, TitleTypes } from './types';
 
 export const getGenreId = async (
-  fetchGenres: () => Promise<any[]>,
+  fetchGenres: () => Promise<GenreTypes[]>,
   genre: string
 ) => {
   try {
@@ -22,7 +22,7 @@ export const reduceText = (text: string, maxLength: number) => {
   return text.substring(0, maxLength) + '...';
 };
 
-export const generateURL = (item: TitlesTypes) => {
+export const generateURL = (item: TitleTypes) => {
   const baseUrl = item.name ? '/tv-serie/' : '/movie/';
   const name = item.name || item.title;
 

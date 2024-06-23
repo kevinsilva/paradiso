@@ -10,6 +10,7 @@ import {
   useGenreMovies,
   useGenreSeries,
 } from '../hooks/useFetch';
+import { TitleTypes } from '../utils/types';
 
 export const HomePage = () => {
   const {
@@ -78,10 +79,10 @@ export const HomePage = () => {
     <div className='overflow-x-hidden bg-neutral-950'>
       <HomePageDetails
         trending={combinedTrending}
-        PopularMovies={popularMovies}
-        PopularSeries={popularSeries}
-        MusicMovies={musicMovies}
-        documentarySeries={documentarySeries}
+        PopularMovies={popularMovies as TitleTypes[]}
+        PopularSeries={popularSeries as TitleTypes[]}
+        MusicMovies={musicMovies as TitleTypes[]}
+        documentarySeries={documentarySeries as TitleTypes[]}
       />
     </div>
   );

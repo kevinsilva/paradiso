@@ -1,16 +1,67 @@
 import { QueryFunction, QueryKey } from '@tanstack/react-query';
 import { ReactNode } from 'react';
 
-export type TitlesTypes = {
+export type TitleTypes = {
   id: number;
   title?: string;
   name?: string;
-  backdrop_path: string;
-  overview: string;
+  poster_path: string;
+  backdrop_path?: string;
+  genres?: { id: number; name: string }[];
+  tagline?: string;
+  release_date?: string;
+  runtime?: number;
+  vote_average?: number;
+  overview?: string;
+};
+
+export type DetailTypes = {
+  id: number;
+  title?: string;
+  name?: string;
+  poster_path: string;
+  backdrop_path?: string;
+  genres?: { id: number; name: string }[];
+  tagline?: string;
+  release_date?: string;
+  runtime?: number;
+  vote_average?: number;
+  overview?: string;
+};
+
+export type CreditTypes = {
+  cast: { id: number; name: string; profile_path: string }[];
+};
+
+export type RecommendationTypes = {
+  id: number;
+  title?: string;
+  name?: string;
+  poster_path: string;
+};
+
+export type HomePageDetailsTypes = {
+  trending: TitleTypes[];
+  PopularMovies: TitleTypes[];
+  PopularSeries: TitleTypes[];
+  MusicMovies: TitleTypes[];
+  documentarySeries: TitleTypes[];
+};
+
+export type SearchPageDetailsTypes = {
+  movies: TitleTypes[];
+  series: TitleTypes[];
+  query: string;
+};
+
+export type TitlePageDetailsTypes = {
+  details: TitleTypes;
+  credits: CreditTypes;
+  recommendations: RecommendationTypes[];
 };
 
 export type CarouselTypes = {
-  data: TitlesTypes[];
+  data: TitleTypes[];
 };
 
 export type ScrollableRowTypes = {
@@ -18,41 +69,9 @@ export type ScrollableRowTypes = {
   children: ReactNode;
 };
 
-export type PopularSeriesTypes = {
-  backdrop_path: string;
-  first_air_date: string;
-  genre_ids: number[];
-  id: number;
-  name: string;
-  origin_country: string[];
-  original_language: string;
-  original_name: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  vote_average: number;
-  vote_count: number;
-};
-
-export type PopularMoviesTypes = {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: GenreTypes[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-};
-
 export type GenreTypes = {
   id: number;
+  name?: string;
 };
 
 // USEFETCH

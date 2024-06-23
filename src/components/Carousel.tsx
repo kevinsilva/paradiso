@@ -52,7 +52,7 @@ export const Carousel = ({ data }: CarouselTypes) => {
               {item.title || item.name}
             </h2>
             <p className='mt-2 text-base drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>
-              {reduceText(item.overview, 150)}
+              {item.overview && reduceText(item.overview, 150)}
             </p>
             <button
               className='mt-8 flex items-center justify-center gap-2 rounded-full bg-neutral-50 px-8 py-2 text-sm text-neutral-950'

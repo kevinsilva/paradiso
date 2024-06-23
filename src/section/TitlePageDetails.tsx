@@ -6,8 +6,13 @@ import { Modal } from '../components/Modal';
 import { Video } from '../components/Video';
 import { IMAGE_URL } from '../utils/constants';
 import { generateURL } from '../utils/utilitary';
+import { TitlePageDetailsTypes } from '../utils/types';
 
-export const TitlePageDetails = ({ details, credits, recommendations }) => {
+export const TitlePageDetails = ({
+  details,
+  credits,
+  recommendations,
+}: TitlePageDetailsTypes) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -32,7 +37,7 @@ export const TitlePageDetails = ({ details, credits, recommendations }) => {
             </h2>
             <div className='mb-4 mt-4 text-sm'>
               <div className='mb-2 mt-2 flex flex-wrap items-center space-x-2'>
-                {details.genres.map((genre) => (
+                {details.genres?.map((genre) => (
                   <span
                     key={genre.id}
                     className='rounded-full border-[1px] border-neutral-700 px-4 py-1 text-neutral-50'
@@ -51,7 +56,7 @@ export const TitlePageDetails = ({ details, credits, recommendations }) => {
                 {details.runtime} min
               </span>
               <span className='rounded-full px-4 py-1 text-sm text-neutral-300 backdrop-blur-lg'>
-                ⭐ {details.vote_average.toFixed(1)}
+                ⭐ {details.vote_average?.toFixed(1)}
               </span>
             </div>
             <p className='mt-4'>{details.overview}</p>
@@ -82,10 +87,10 @@ export const TitlePageDetails = ({ details, credits, recommendations }) => {
       </div>
       <div className='mx-12 mt-24'>
         <ScrollableRow title='Recommendations'>
-          {recommendations?.results.map((recommendation) => (
+          {recommendations?.map((recommendation) => (
             <HorizontalCard
               key={recommendation.id}
-              title={recommendation.title || recommendation.name}
+              title={recommendation.title || recommendation.name || ''}
               imageSrc={`https://image.tmdb.org/t/p/w500${recommendation.poster_path}`}
               link={generateURL(recommendation)}
             />
