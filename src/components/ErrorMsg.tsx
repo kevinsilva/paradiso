@@ -1,4 +1,3 @@
-import React from 'react';
 import { WarningCircle } from '@phosphor-icons/react';
 
 export const ErrorMsg = ({ text }: { text: string }) => {

@@ -1,5 +1,9 @@
 // URL
-export const IMAGE_URL = 'https://image.tmdb.org/t/p/original/';
+export const IMAGE_URL = {
+  original: 'https://image.tmdb.org/t/p/original',
+  medium: 'https://image.tmdb.org/t/p/w500',
+  small: 'https://image.tmdb.org/t/p/w300',
+};
 
 export const VIDEO_URL =
   'https://rawgit.com/mediaelement/mediaelement-files/master/big_buck_bunny.mp4';

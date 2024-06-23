@@ -20,7 +20,7 @@ export const SearchPageDetails = ({
             <HorizontalCard
               key={movie.id}
               title={movie.title || ''}
-              imageSrc={`${IMAGE_URL}${movie.poster_path}`}
+              imageSrc={`${IMAGE_URL.medium}${movie.poster_path}`}
               link={generateURL(movie)}
             />
           ))}
@@ -32,7 +32,7 @@ export const SearchPageDetails = ({
             <HorizontalCard
               key={serie.id}
               title={serie.name || ''}
-              imageSrc={`${IMAGE_URL}${serie.poster_path}`}
+              imageSrc={`${IMAGE_URL.medium}${serie.poster_path}`}
               link={generateURL(serie)}
             />
           ))}

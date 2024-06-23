@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ScrollableRow } from '../components/ScrollableRow';
 import { VerticalCard } from '../components/VerticalCard';
 import { HorizontalCard } from '../components/HorizontalCard';
@@ -20,14 +20,14 @@ export const TitlePageDetails = ({
       <div
         className='relative h-[40rem] w-full bg-cover bg-center'
         style={{
-          backgroundImage: `url(${IMAGE_URL}${details.backdrop_path})`,
+          backgroundImage: `url(${IMAGE_URL.original}${details.backdrop_path})`,
         }}
       >
         <div className='absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent'></div>
         <div className='absolute inset-0 bg-neutral-950 opacity-50'></div>
         <div className='absolute inset-0 flex items-end p-12 pb-20'>
           <img
-            src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
+            src={`${IMAGE_URL.medium}${details.poster_path}`}
             alt={details.title || details.name}
             className='mr-8 w-48 rounded-lg shadow-lg'
           />
@@ -80,7 +80,7 @@ export const TitlePageDetails = ({
             <VerticalCard
               key={cast.id}
               title={cast.name}
-              imageSrc={`https://image.tmdb.org/t/p/w500${cast.profile_path}`}
+              imageSrc={`${IMAGE_URL.medium}${cast.profile_path}`}
             />
           ))}
         </ScrollableRow>
@@ -91,7 +91,7 @@ export const TitlePageDetails = ({
             <HorizontalCard
               key={recommendation.id}
               title={recommendation.title || recommendation.name || ''}
-              imageSrc={`https://image.tmdb.org/t/p/w500${recommendation.poster_path}`}
+              imageSrc={`${IMAGE_URL.medium}${recommendation.poster_path}`}
               link={generateURL(recommendation)}
             />
           ))}

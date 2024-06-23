@@ -42,7 +42,7 @@ export const Carousel = ({ data }: CarouselTypes) => {
           className={`absolute inset-0 transition-opacity duration-500 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
         >
           <img
-            src={`${IMAGE_URL}${item.backdrop_path}`}
+            src={`${IMAGE_URL.original}${item.backdrop_path}`}
             className='h-full w-full bg-center object-cover contrast-125 filter'
             alt={item.title}
           />
