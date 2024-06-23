@@ -17,13 +17,6 @@ export const getGenreId = async (
   }
 };
 
-export const formatURL = (title: string): string => {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-};
-
 export const reduceText = (text: string, maxLength: number) => {
   if (text.length <= maxLength) return text;
   return text.substring(0, maxLength) + '...';
@@ -35,4 +28,9 @@ export const generateURL = (item: TitlesTypes) => {
 
   if (!name) return '';
   return `${baseUrl}${item.id}/${name.split(' ').join('-').toLowerCase()}`;
+};
+
+export const getRandomItems = (arr: any, num: number) => {
+  const shuffled = arr.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, num);
 };

@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useSearchMovies, useSearchSeries } from '../hooks/useFetch';
-import { SearchPageSection } from '../section/SearchPageSection';
-import { ScrollableRow } from '../components/ScrollableRow';
-import { CardTypeTypes } from '../utils/types';
+import { SearchPageDetails } from '../section/SearchPageDetails';
+import { Spinner } from '../components/Spinner';
+import { ErrorMsg } from '../components/ErrorMsg';
 
 export const SearchPage = () => {
   const { query } = useParams();
@@ -18,12 +18,12 @@ export const SearchPage = () => {
     error: seriesError,
   } = useSearchSeries(searchQuery);
 
-  if (moviesLoading || seriesLoading) return <div>Loading...</div>;
-  if (moviesError || seriesError) return <div>Error</div>;
+  if (moviesLoading || seriesLoading) return <Spinner />;
+  if (moviesError || seriesError) return <ErrorMsg text='Error' />;
 
   return (
     <div className='h-full bg-neutral-950'>
-      <SearchPageSection movies={movies} series={series} query={query} />
+      <SearchPageDetails movies={movies} series={series} query={query} />
     </div>
   );
 };

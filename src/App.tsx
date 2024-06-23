@@ -12,14 +12,6 @@ function App() {
         <AppRoutes />
         <Footer />
       </Router>
-      {/* {data &&
-        ScrollableRow({
-          title: 'Popular Movies',
-          data,
-          cardType: CardTypes.HORIZONTAL,
-        })} */}
-
-      {/* {data && <Carousel data={data} />} */}
     </div>
   );
 }

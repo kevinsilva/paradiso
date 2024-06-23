@@ -1,4 +1,4 @@
-import API from './api';
+import API from './config';
 import {
   API_PARAMS_BEST,
   API_PARAMS_SEARCH,

@@ -1,4 +1,7 @@
-import { HomePageSection } from '../section/HomePageSection';
+import { HomePageDetails } from '../section/HomePageDetails';
+import { Spinner } from '../components/Spinner';
+import { ErrorMsg } from '../components/ErrorMsg';
+import { getRandomItems } from '../utils/utilitary';
 import {
   useTrendingMovies,
   useTrendingSeries,
@@ -7,12 +10,6 @@ import {
   useGenreMovies,
   useGenreSeries,
 } from '../hooks/useFetch';
-
-const getRandomItems = (arr: any, num: number) => {
-  const shuffled = arr.sort(() => 0.5 - Math.random());
-  console.log(shuffled);
-  return shuffled.slice(0, num);
-};
 
 export const HomePage = () => {
   const {
@@ -51,6 +48,25 @@ export const HomePage = () => {
     error: documentarySeriesError,
   } = useGenreSeries('Documentary');
 
+  if (
+    isTrendingMoviesLoading ||
+    isTrendingSeriesLoading ||
+    isPopularMoviesLoading ||
+    isPopularSeriesLoading ||
+    isMusicMoviesLoading ||
+    isDocumentarySeriesLoading
+  )
+    return <Spinner />;
+  if (
+    trendingMoviesError ||
+    trendingSeriesError ||
+    popularMoviesError ||
+    popularSeriesError ||
+    musicMoviesError ||
+    documentarySeriesError
+  )
+    return <ErrorMsg text='Something went wrong' />;
+
   let combinedTrending = [];
   if (Array.isArray(trendingMovies) && Array.isArray(trendingSeries))
     combinedTrending = getRandomItems(
@@ -60,7 +76,7 @@ export const HomePage = () => {
 
   return (
     <div className='overflow-x-hidden bg-neutral-950'>
-      <HomePageSection
+      <HomePageDetails
         trending={combinedTrending}
         PopularMovies={popularMovies}
         PopularSeries={popularSeries}

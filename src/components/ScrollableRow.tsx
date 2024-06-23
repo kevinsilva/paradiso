@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { CaretLeft, CaretRight } from '@phosphor-icons/react';
 import { ScrollableRowTypes } from '../utils/types';
+import { CARD_PARAGRAPH_HEIGHT } from '../utils/constants';
 
 export const ScrollableRow = ({ title, children }: ScrollableRowTypes) => {
   const scrollableRef = useRef<HTMLDivElement>(null);
@@ -24,7 +25,7 @@ export const ScrollableRow = ({ title, children }: ScrollableRowTypes) => {
       </h2>
       <div className='group relative flex h-full items-center justify-between'>
         <button
-          className='absolute -left-10 top-[calc(50%-1.75rem)] z-50 -translate-y-1/2 transform p-2 text-neutral-50 opacity-0 transition-opacity duration-200 group-hover:opacity-100'
+          className={`absolute -left-10 top-[calc(50%-${CARD_PARAGRAPH_HEIGHT})] z-50 -translate-y-1/2 transform p-2 text-neutral-50 opacity-0 transition-opacity duration-200 group-hover:opacity-100`}
           onClick={handlePrevClick}
         >
           <CaretLeft size={32} />
@@ -36,7 +37,7 @@ export const ScrollableRow = ({ title, children }: ScrollableRowTypes) => {
           {children}
         </div>
         <button
-          className={`absolute -right-10 top-[calc(50%-1.75rem)] z-50 -translate-y-1/2 transform rounded-full p-2 text-neutral-50 opacity-0 transition-opacity duration-200 group-hover:opacity-100`}
+          className={`absolute -right-10 top-[calc(50%-${CARD_PARAGRAPH_HEIGHT})] z-50 -translate-y-1/2 transform rounded-full p-2 text-neutral-50 opacity-0 transition-opacity duration-200 group-hover:opacity-100`}
           onClick={handleNextClick}
         >
           <CaretRight size={32} />

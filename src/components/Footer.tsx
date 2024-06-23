@@ -6,7 +6,7 @@ export const Footer = () => {
       <small className='mb-4'>
         &copy;{new Date().getFullYear()} Kevin Silva.{' '}
         <span className='text-xs'>
-          Built with React & TypeScript, Tailwind CSS. Data from{' '}
+          Built with React, TypeScript & Tailwind CSS. Data from{' '}
           <Link to={'https://www.themoviedb.org/'} className='hover:opacity-70'>
             TMDB
           </Link>

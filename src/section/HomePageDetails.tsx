@@ -71,12 +71,12 @@ export const HomePageDetails = ({
       </div>
       <div className='mx-12 mt-20'>
         <ScrollableRow title='Documentary Series'>
-          {documentarySeries?.map((series) => (
+          {documentarySeries?.map((serie) => (
             <HorizontalCard
-              key={series.id}
-              title={series.name}
-              imageSrc={`${IMAGE_URL}${series.backdrop_path}`}
-              link={generateURL(series)}
+              key={serie.id}
+              title={serie.name}
+              imageSrc={`${IMAGE_URL}${serie.backdrop_path}`}
+              link={generateURL(serie)}
             />
           ))}
         </ScrollableRow>

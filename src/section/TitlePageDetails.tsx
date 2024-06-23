@@ -22,7 +22,7 @@ export const TitlePageDetails = ({ details, credits, recommendations }) => {
         <div className='absolute inset-0 bg-neutral-950 opacity-50'></div>
         <div className='absolute inset-0 flex items-end p-12 pb-20'>
           <img
-            src={`https://image.tmdb.org/t/p/w300${details.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
             alt={details.title || details.name}
             className='mr-8 w-48 rounded-lg shadow-lg'
           />
@@ -75,7 +75,7 @@ export const TitlePageDetails = ({ details, credits, recommendations }) => {
             <VerticalCard
               key={cast.id}
               title={cast.name}
-              imageSrc={`https://image.tmdb.org/t/p/w300${cast.profile_path}`}
+              imageSrc={`https://image.tmdb.org/t/p/w500${cast.profile_path}`}
             />
           ))}
         </ScrollableRow>
@@ -86,7 +86,7 @@ export const TitlePageDetails = ({ details, credits, recommendations }) => {
             <HorizontalCard
               key={recommendation.id}
               title={recommendation.title || recommendation.name}
-              imageSrc={`https://image.tmdb.org/t/p/w300${recommendation.poster_path}`}
+              imageSrc={`https://image.tmdb.org/t/p/w500${recommendation.poster_path}`}
               link={generateURL(recommendation)}
             />
           ))}

@@ -13,6 +13,8 @@ export const Header = () => {
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter' && event.currentTarget.value.trim() !== '') {
       navigate(`/search/${event.currentTarget.value.trim()}`);
+      event.currentTarget.value = '';
+      setShowInput(false);
     }
     if (event.key === 'Escape') {
       setShowInput(false);
@@ -41,7 +43,7 @@ export const Header = () => {
           size={24}
           weight='bold'
           onClick={toggleInput}
-          className='ml-2 cursor-pointer'
+          className='ml-2 cursor-pointer drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'
         />
       </div>
     </header>

@@ -4,26 +4,38 @@ import {
   useSerieCredits,
   useSerieRecommendations,
 } from '../hooks/useFetch';
-import { MoviePageSection } from '../section/MoviePageSection';
+import { TitlePageDetails } from '../section/TitlePageDetails';
+import { Spinner } from '../components/Spinner';
+import { ErrorMsg } from '../components/ErrorMsg';
+
 export const SeriePage = () => {
   const { id } = useParams();
   const titleId = Number(id) || 0;
-  const { data, isLoading, error } = useSerieDetails(titleId);
+  const {
+    data: details,
+    isLoading: isLoadingDetails,
+    error: errorDetails,
+  } = useSerieDetails(titleId);
   const {
     data: credits,
     isLoading: isLoadingCredits,
     error: errorCredits,
   } = useSerieCredits(titleId);
-  const { data: recommendations, isLoading: isLoadingRecommendations } =
-    useSerieRecommendations(titleId);
+  const {
+    data: recommendations,
+    isLoading: isLoadingRecommendations,
+    error: errorRecommendations,
+  } = useSerieRecommendations(titleId);
 
-  if (isLoading || isLoadingCredits) return <div>Loading...</div>;
-  if (error || errorCredits) return <div>Error</div>;
+  if (isLoadingDetails || isLoadingRecommendations || isLoadingCredits)
+    return <Spinner />;
+  if (errorDetails || errorCredits || errorRecommendations)
+    return <ErrorMsg text='Error' />;
 
   return (
     <div>
-      <MoviePageSection
-        details={data}
+      <TitlePageDetails
+        details={details}
         credits={credits}
         recommendations={recommendations}
       />
