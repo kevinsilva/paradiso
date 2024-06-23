@@ -7,6 +7,7 @@ import { IMAGE_URL } from '../utils/constants';
 
 export const Carousel = ({ data }: CarouselTypes) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMoreInfoHovered, setIsMoreInfoHovered] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export const Carousel = ({ data }: CarouselTypes) => {
     <div className='group relative h-full min-h-[20.625rem] w-full overflow-hidden'>
       {data.map((item, index: number) => (
         <div
-          data-testid='img-container'
+          id='img-container'
           key={item.id}
           className={`absolute inset-0 transition-opacity duration-500 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
         >
@@ -56,8 +57,10 @@ export const Carousel = ({ data }: CarouselTypes) => {
               {item.overview && reduceText(item.overview, 150)}
             </p>
             <button
-              className='mt-8 flex items-center justify-center gap-2 rounded-full bg-neutral-50 px-8 py-2 text-sm text-neutral-950'
+              className={`mt-8 flex items-center justify-center gap-2 rounded-full bg-neutral-50 px-8 py-2 text-sm text-neutral-950 ${isMoreInfoHovered ? 'bg-opacity-90' : 'bg-opacity-100'}`}
               onClick={handleMoreInfoClick}
+              onMouseEnter={() => setIsMoreInfoHovered(true)}
+              onMouseLeave={() => setIsMoreInfoHovered(false)}
             >
               More info <ArrowRight size={18} weight='bold' />
             </button>

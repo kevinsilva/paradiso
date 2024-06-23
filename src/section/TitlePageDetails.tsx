@@ -40,7 +40,7 @@ export const TitlePageDetails = ({
                 {details.genres?.map((genre) => (
                   <span
                     key={genre.id}
-                    className='rounded-full border-[1px] border-neutral-700 px-4 py-1 text-neutral-50'
+                    className='rounded-full px-4 py-1 text-neutral-50 backdrop-blur-lg'
                   >
                     {genre.name}
                   </span>
@@ -61,7 +61,7 @@ export const TitlePageDetails = ({
             </div>
             <p className='mt-4'>{details.overview}</p>
             <button
-              className='mt-8 flex items-center justify-center gap-2 rounded-full bg-neutral-50 px-8 py-2 text-sm text-neutral-950'
+              className='mt-8 flex items-center justify-center gap-2 rounded-full bg-neutral-50 px-8 py-2 text-sm text-neutral-950 hover:opacity-90'
               onClick={() => setShowModal(true)}
             >
               Watch Video
@@ -83,6 +83,9 @@ export const TitlePageDetails = ({
               imageSrc={`${IMAGE_URL.medium}${cast.profile_path}`}
             />
           ))}
+          {credits.length === 0 && (
+            <p className='text-md text-neutral-50'>No Cast Available</p>
+          )}
         </ScrollableRow>
       </div>
       <div className='mx-12 mt-24'>
@@ -95,6 +98,11 @@ export const TitlePageDetails = ({
               link={generateURL(recommendation)}
             />
           ))}
+          {recommendations.length === 0 && (
+            <p className='text-md text-neutral-50'>
+              No Recommendations available
+            </p>
+          )}
         </ScrollableRow>
       </div>
     </div>

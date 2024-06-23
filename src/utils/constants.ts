@@ -15,7 +15,7 @@ export const VERTICAL_CARD_SIZE = {
 };
 
 export const HORIZONTAL_CARD_SIZE = {
-  width: '18.5rem',
+  width: '18.6rem',
   height: '10.4rem',
 };
 

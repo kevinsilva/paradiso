@@ -1,11 +1,3 @@
-<p align="center"><img src="" width="100"></p>
-
-<div align="center">
-
-<a href="">[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-success?style=flat-square&logo=codesandbox)]()</a>
-
-</div>
-
 # Paradiso
 
 Paradiso is a React-based web application that provides users with information about trending movies, TV series, and various genres. The application fetches data from [The Movie Database API](https://www.themoviedb.org/documentation/api) to display details about movies and tv series, including their popularity, genres, and recommendations. Users can also search for specific titles and view detailed pages for each movie or series.
