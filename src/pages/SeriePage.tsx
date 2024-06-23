@@ -7,6 +7,7 @@ import {
 import { TitlePageDetails } from '../section/TitlePageDetails';
 import { Spinner } from '../components/Spinner';
 import { ErrorMsg } from '../components/ErrorMsg';
+import { CreditTypes, DetailTypes, RecommendationTypes } from '../utils/types';
 
 export const SeriePage = () => {
   const { id } = useParams();
@@ -35,9 +36,9 @@ export const SeriePage = () => {
   return (
     <div>
       <TitlePageDetails
-        details={details}
-        credits={credits}
-        recommendations={recommendations}
+        details={details as DetailTypes}
+        credits={credits as CreditTypes[]}
+        recommendations={recommendations as RecommendationTypes[]}
       />
     </div>
   );

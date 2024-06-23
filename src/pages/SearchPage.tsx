@@ -3,6 +3,7 @@ import { useSearchMovies, useSearchSeries } from '../hooks/useFetch';
 import { SearchPageDetails } from '../section/SearchPageDetails';
 import { Spinner } from '../components/Spinner';
 import { ErrorMsg } from '../components/ErrorMsg';
+import { TitleTypes } from '../utils/types';
 
 export const SearchPage = () => {
   const { query } = useParams();
@@ -23,7 +24,11 @@ export const SearchPage = () => {
 
   return (
     <div className='h-full bg-neutral-950'>
-      <SearchPageDetails movies={movies} series={series} query={query} />
+      <SearchPageDetails
+        movies={movies as TitleTypes[]}
+        series={series as TitleTypes[]}
+        query={query as string}
+      />
     </div>
   );
 };

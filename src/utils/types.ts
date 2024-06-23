@@ -30,7 +30,9 @@ export type DetailTypes = {
 };
 
 export type CreditTypes = {
-  cast: { id: number; name: string; profile_path: string }[];
+  id: number;
+  name: string;
+  profile_path: string;
 };
 
 export type RecommendationTypes = {
@@ -56,7 +58,7 @@ export type SearchPageDetailsTypes = {
 
 export type TitlePageDetailsTypes = {
   details: TitleTypes;
-  credits: CreditTypes;
+  credits: CreditTypes[];
   recommendations: RecommendationTypes[];
 };
 

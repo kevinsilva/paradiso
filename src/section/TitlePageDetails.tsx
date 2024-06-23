@@ -76,7 +76,7 @@ export const TitlePageDetails = ({
       </div>
       <div className='mx-12 mt-8'>
         <ScrollableRow title='Cast'>
-          {credits?.cast.map((cast) => (
+          {credits?.map((cast) => (
             <VerticalCard
               key={cast.id}
               title={cast.name}
@@ -87,7 +87,7 @@ export const TitlePageDetails = ({
       </div>
       <div className='mx-12 mt-24'>
         <ScrollableRow title='Recommendations'>
-          {recommendations?.map((recommendation) => (
+          {recommendations.map((recommendation) => (
             <HorizontalCard
               key={recommendation.id}
               title={recommendation.title || recommendation.name || ''}

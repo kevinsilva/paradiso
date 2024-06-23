@@ -63,7 +63,7 @@ export const fetchMovieCredits = async (
   const { data } = await API.get(`movie/${movieId}/credits`, {
     params: API_PARAMS_DETAILS,
   });
-  return data;
+  return data.cast;
 };
 
 export const fetchMovieRecommendations = async (

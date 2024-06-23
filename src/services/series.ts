@@ -63,7 +63,7 @@ export const fetchSerieCredits = async (
   const { data } = await API.get(`tv/${serieId}/credits`, {
     params: API_PARAMS_DETAILS,
   });
-  return data;
+  return data.cast;
 };
 
 export const fetchSerieRecommendations = async (
@@ -72,5 +72,5 @@ export const fetchSerieRecommendations = async (
   const { data } = await API.get(`tv/${serieId}/recommendations`, {
     params: API_PARAMS_RECOMMENDATIONS,
   });
-  return data;
+  return data.results;
 };
