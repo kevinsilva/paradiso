@@ -38,12 +38,13 @@ export const Carousel = ({ data }: CarouselTypes) => {
     <div className='group relative h-full min-h-[20.625rem] w-full overflow-hidden'>
       {data.map((item, index: number) => (
         <div
+          data-testid='img-container'
           key={item.id}
           className={`absolute inset-0 transition-opacity duration-500 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
         >
           <img
             src={`${IMAGE_URL.original}${item.backdrop_path}`}
-            className='h-full w-full bg-center object-cover contrast-125 filter'
+            className={`h-full w-full bg-center object-cover contrast-125 filter ${index === currentIndex ? 'visible' : 'invisible'}`}
             alt={item.title}
           />
           <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-950'></div>
@@ -67,17 +68,20 @@ export const Carousel = ({ data }: CarouselTypes) => {
                 key={index}
                 className={`h-[.2rem] w-8 cursor-pointer rounded-sm bg-neutral-50 ${index === currentIndex ? 'bg-opacity-100' : 'bg-opacity-50'}`}
                 onClick={() => handleDashClick(index)}
+                data-testid='dash-indicator'
               ></span>
             ))}
           </div>
 
           <button
+            aria-label='Previous'
             className='absolute left-6 top-1/2 -translate-y-1/2 transform bg-opacity-75 text-neutral-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100'
             onClick={handlePrevClick}
           >
             <CaretLeft size={32} />
           </button>
           <button
+            aria-label='Next'
             className='absolute right-6 top-1/2 -translate-y-1/2 transform bg-opacity-75 text-neutral-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100'
             onClick={handleNextClick}
           >

@@ -68,7 +68,7 @@ export const HomePage = () => {
   )
     return <ErrorMsg text='Something went wrong' />;
 
-  let combinedTrending = [];
+  let combinedTrending: TitleTypes[] = [];
   if (Array.isArray(trendingMovies) && Array.isArray(trendingSeries))
     combinedTrending = getRandomItems(
       [...trendingMovies, ...trendingSeries],
@@ -77,6 +77,7 @@ export const HomePage = () => {
 
   return (
     <div className='overflow-x-hidden bg-neutral-950'>
+      {}
       <HomePageDetails
         trending={combinedTrending}
         PopularMovies={popularMovies as TitleTypes[]}
