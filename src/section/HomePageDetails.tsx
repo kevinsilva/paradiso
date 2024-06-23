@@ -21,7 +21,7 @@ interface HomePageSectionProps {
   documentarySeries: Item[];
 }
 
-export const HomePageSection = ({
+export const HomePageDetails = ({
   trending,
   PopularMovies,
   PopularSeries,
@@ -69,7 +69,7 @@ export const HomePageSection = ({
           ))}
         </ScrollableRow>
       </div>
-      <div className='mx-12 mt-10'>
+      <div className='mx-12 mt-20'>
         <ScrollableRow title='Documentary Series'>
           {documentarySeries?.map((series) => (
             <HorizontalCard

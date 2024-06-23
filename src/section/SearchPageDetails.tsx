@@ -4,7 +4,7 @@ import { HorizontalCard } from '../components/HorizontalCard';
 import { IMAGE_URL } from '../utils/constants';
 import { generateURL } from '../utils/utilitary';
 
-export const SearchPageSection = ({ movies, series, query }) => {
+export const SearchPageDetails = ({ movies, series, query }) => {
   return (
     <div className='bg-neutral-950 px-8 pt-32'>
       <h2 className='mb-4 text-left text-2xl font-bold text-neutral-50'>
